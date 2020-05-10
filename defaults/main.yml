@@ -63,12 +63,12 @@ security_epel_release_package: epel-release
 
 ## Accounts (accounts)
 # Set minimum password lifetime to 1 day for interactive accounts.
-security_set_minimum_password_lifetime: no                   # V-71927
-security_set_maximum_password_lifetime: no                   # V-71931
+security_set_minimum_password_lifetime: yes                   # V-71927
+security_set_maximum_password_lifetime: yes                  # V-71931
 
 ## AIDE (aide)
 # Initialize the AIDE database immediately (may take time).
-security_rhel7_initialize_aide: no                           # V-71973
+security_rhel7_initialize_aide: yes                           # V-71973
 
 # The default Ubuntu configuration for AIDE will cause it to wander into some
 # terrible places on the system, such as /var/lib/lxc and images in /opt.
@@ -200,7 +200,7 @@ security_pam_faillock_unlock_time: 604800                    # V-71943
 # Limit the number of concurrent connections per account.
 #security_rhel7_concurrent_session_limit: 10                 # V-72217
 # Remove .shosts and shosts.equiv files.
-security_rhel7_remove_shosts_files: no                       # V-72277
+security_rhel7_remove_shosts_files: yes                       # V-72277
 
 ## File permissions (file_perms)
 # Reset file permissions and ownership for files installed via RPM packages.
@@ -219,7 +219,7 @@ security_disable_gdm_automatic_login: yes                    # V-71953
 # Disable timed gdm logins for guests
 security_disable_gdm_timed_login: yes                        # V-71955
 # Enable session locking for graphical logins.
-security_lock_session: no                                    # V-71891
+security_lock_session: yes                                    # V-71891
 # Set a timer (in seconds) when an inactive session is locked.
 security_lock_session_inactive_delay: 900                    # V-71893
 # Prevent users from modifying session lock settings.
@@ -243,7 +243,7 @@ security_rhel7_enable_linux_security_module: yes             # V-71989 / V-71991
 # Disable the autofs service.
 security_rhel7_disable_autofs: yes                           # V-71985
 # Enable virus scanning with clamav
-security_enable_virus_scanner: no                            # V-72213
+security_enable_virus_scanner: yes                            # V-72213
 # Run the virus scanner update during the deployment (if scanner is deployed)
 security_run_virus_scanner_update: yes
 # Disable ctrl-alt-delete key sequence on the console.
@@ -276,7 +276,7 @@ security_ntp_server_options: iburst
 security_ntp_sync_rtc: false
 # Chrony limits access to clients that are on certain subnets.  Adjust the
 # following subnets here to limit client access to chrony servers.
-security_allowed_ntp_subnets:
+security_allowed_ntp_subnets:   # subnets??
   - 10/8
   - 192.168/16
   - 172.16/12
